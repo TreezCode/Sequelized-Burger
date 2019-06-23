@@ -2,11 +2,11 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
     $(".change-devour").on("click", function (event) {
+
         var id = $(this).data("id");
         var newDevour = $(this).data("newdevour");
-
         var newDevourState = {
-            devour: newDevour
+            devour: false
         };
 
         // Send the PUT request.
@@ -23,12 +23,11 @@ $(function () {
     });
 
     $(".create-form").on("submit", function (event) {
-        // Make sure to preventDefault on a submit event.
         event.preventDefault();
-
+        
         var newburger = {
             name: $("#ca").val().trim(),
-            devour: 0
+            devour: true
         };
 
         // Send the POST request.
@@ -45,6 +44,7 @@ $(function () {
     });
 
     $(".delete-burger").on("click", function (event) {
+
         var id = $(this).data("id");
 
         // Send the DELETE request.

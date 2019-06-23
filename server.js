@@ -1,10 +1,10 @@
 
 // Dependencies
 const express = require("express");
-
 const PORT = process.env.PORT || 8080;
-
 const app = express();
+const db = require("./models");
+
 
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
@@ -24,8 +24,10 @@ var routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
 
-// Start our server so that it can begin listening to client requests.
-app.listen(PORT, function() {
-    // Log (server-side) when our server has started
-    console.log("Server listening on: http://localhost:" + PORT);
+// Syncing our sequelize models and then starting our Express app
+db.sequelize.sync({ force: false }).then(function() {
+    app.listen(PORT, function() {
+        // Log (server-side) when our server has started
+        console.log("Server listening on: http://localhost:" + PORT);
+    });
 });

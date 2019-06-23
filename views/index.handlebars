@@ -1,3 +1,4 @@
+
 <div class="container mt-2">
 
 	<div class="row text-center">
@@ -14,24 +15,30 @@
 				</div>
 				<ol>
 					{{#each burgers}}
-					{{#unless devour}}
-					{{> burgers/burger-block devour=true}}
-					{{/unless}}
+						{{#if devour}}
+							<li class="mb-3">
+								{{burger_name}}
+								<span class="change-devour ml-5" data-id="{{id}}" data-newdevour="{{devour}}"><i class="fas fa-hamburger fa-2x"></i></span>
+							</li>
+						{{/if}}
 					{{/each}}
 				</ol>
 			</div>
 		</div>
 
-		<div class="card col-md-5">
+		<div class="card col-md-5 mt-3">
 			<div class="card-body">
 				<div class="card-header" id="finished">
 					<h2>Good to Throw:</h2>
 				</div>
 				<ol>
 					{{#each burgers}}
-					{{#if devour}}
-					{{> burgers/burger-block devour=false}}
-					{{/if}}
+						{{#unless devour}}
+							<li class="mb-3">
+								{{burger_name}}
+								<span class="delete-burger ml-5" data-id="{{id}}"><i class="fas fa-trash-alt fa-2x"></i></span>
+							</li>
+						{{/unless}}
 					{{/each}}
 				</ol>
 			</div>
