@@ -17,8 +17,8 @@
 					{{#each burgers}}
 						{{#if devour}}
 							<li class="mb-3">
-								{{burger_name}}
-								<span class="change-devour ml-5" data-id="{{id}}" data-newdevour="{{devour}}"><i class="fas fa-hamburger fa-2x"></i></span>
+								<span class="mx-3">{{burger_name}}</span>
+								<span class="change-devour mx-3" data-id="{{id}}" data-newdevour="{{devour}}"><i class="fas fa-hamburger fa-2x"></i></span>
 							</li>
 						{{/if}}
 					{{/each}}
@@ -35,8 +35,8 @@
 					{{#each burgers}}
 						{{#unless devour}}
 							<li class="mb-3">
-								{{burger_name}}
-								<span class="delete-burger ml-5" data-id="{{id}}"><i class="fas fa-trash-alt fa-2x"></i></span>
+								<span class="mx-3">{{burger_name}}</span>
+								<span class="delete-burger mx-3" data-id="{{id}}"><i class="fas fa-trash-alt fa-2x"></i></span>
 							</li>
 						{{/unless}}
 					{{/each}}
